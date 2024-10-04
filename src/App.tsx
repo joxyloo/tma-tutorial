@@ -3,12 +3,10 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import WebApp from '@twa-dev/sdk';
-import { TonConnectButton, TonConnectUIProvider, useTonAddress } from '@tonconnect/ui-react';
+import { TonConnectButton, TonConnectUIProvider } from '@tonconnect/ui-react';
 
 function App() {
   const [count, setCount] = useState(0);
-  const userFriendlyAddress = useTonAddress();
-  const rawAddress = useTonAddress(false);
 
   return (
     <TonConnectUIProvider manifestUrl='https://joxyloo.github.io/tma-tutorial/tonconnect-manifest.json'>
@@ -24,12 +22,6 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      userFriendlyAddress && (
-      <div>
-        <span>User-friendly address: {userFriendlyAddress}</span>
-        <span>Raw address: {rawAddress}</span>
-      </div>
-      )
       <div className='card'>
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
